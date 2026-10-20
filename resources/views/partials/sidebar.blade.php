@@ -1,0 +1,42 @@
+
+<aside class="sidebar d-flex flex-column p-3">
+    <a href="{{ route('dashboard') }}"
+       class="brand text-decoration-none mb-4">
+        <span class="brand-icon">H</span>
+        <span>HRIS <small>Human Resources</small></span>
+    </a>
+
+    <div class="menu-label">MENU UTAMA</div>
+
+    <nav class="nav flex-column gap-1">
+        <a href="{{ route('dashboard') }}"
+           class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+            <span class="menu-icon">▦</span> Dashboard
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="menu-icon">♙</span> Data Karyawan
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="menu-icon">◷</span> Absensi
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="menu-icon">▤</span> Pengajuan Cuti
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="menu-icon">▧</span> Departemen
+        </a>
+
+        <a href="#" class="nav-link">
+            <span class="menu-icon">▥</span> Laporan
+        </a>
+    </nav>
+
+    <div class="sidebar-footer mt-auto">
+        <div class="fw-semibold">HRIS System</div>
+        <small>Human Resource Information System</small>
+    </div>
+</aside>
