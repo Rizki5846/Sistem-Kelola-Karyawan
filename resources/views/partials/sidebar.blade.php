@@ -14,7 +14,8 @@
             <span class="menu-icon">▦</span> Dashboard
         </a>
 
-        <a href="#" class="nav-link">
+        <a href="{{ route('employees.index') }}"
+            class="nav-link {{ request()->routeIs('employees.*') ? 'active' : '' }}">
             <span class="menu-icon">♙</span> Data Karyawan
         </a>
 

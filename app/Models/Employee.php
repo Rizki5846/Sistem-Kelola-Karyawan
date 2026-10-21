@@ -9,12 +9,13 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Employee extends Model
 {
-    protected $filliable = [
+    protected $fillable = [
         'user_id',
         'employee_number',
         'name',
+        'email',
         'phone',
-        'adtess',
+        'address',
         'department_id',
         'position_id',
         'manager_id',
