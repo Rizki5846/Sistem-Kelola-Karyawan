@@ -4,6 +4,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmployeeController;
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
@@ -32,3 +33,13 @@ Route::get('/', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware('auth')
     ->name('dashboard');
+
+    Route::middleware('auth')->group(function() {
+        Route::get('/dashboard', [DashboardController::class, 'index'])
+        ->name('dashboard');
+
+        Route::resource('employees', EmployeeController::class)
+        ->except(['show'])
+        ->middleware('role:HRD');
+    });
+
