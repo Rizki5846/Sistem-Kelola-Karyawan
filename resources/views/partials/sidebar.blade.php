@@ -26,9 +26,16 @@
         <a href="#" class="nav-link">
             <span class="menu-icon">▤</span> Pengajuan Cuti
         </a>
+        <a href="{{ route('positions.index') }}"
+        class="nav-link {{ request()->routeIs('positions.*') ? 'active' : '' }}">
+            <i class="bi bi-briefcase me-2"></i>
+            Jabatan
+        </a>
 
-        <a href="#" class="nav-link">
-            <span class="menu-icon">▧</span> Departemen
+        <a href="{{ route('departments.index') }}"
+        class="nav-link {{ request()->routeIs('departments.*') ? 'active' : '' }}">
+            <i class="bi bi-building me-2"></i>
+            Departemen
         </a>
 
         <a href="#" class="nav-link">

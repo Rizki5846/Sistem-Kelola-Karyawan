@@ -4,7 +4,9 @@
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PositionController;
 
 Route::get('/', function () {
     return redirect()->route('dashboard');
@@ -42,4 +44,17 @@ Route::get('/dashboard', [DashboardController::class, 'index'])
         ->except(['show'])
         ->middleware('role:HRD');
     });
+
+
+Route::middleware('auth')->group(function () {
+    // Pertahankan route dashboard dan employees yang sudah ada.
+
+    Route::middleware('role:HRD')->group(function () {
+        Route::resource('departments', DepartmentController::class)
+            ->except(['show']);
+
+        Route::resource('positions', PositionController::class)
+            ->except(['show']);
+    });
+});
 
