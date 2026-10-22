@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -57,4 +58,13 @@ Route::middleware('auth')->group(function () {
             ->except(['show']);
     });
 });
+
+Route::get('/attendances', [AttendanceController::class, 'index'])
+    ->name('attendances.index');
+
+Route::post('/attendances/check-in', [AttendanceController::class, 'checkIn'])
+    ->name('attendances.check-in');
+
+Route::post('/attendances/check-out', [AttendanceController::class, 'checkOut'])
+    ->name('attendances.check-out');
 
