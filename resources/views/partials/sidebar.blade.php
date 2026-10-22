@@ -19,8 +19,10 @@
             <span class="menu-icon">♙</span> Data Karyawan
         </a>
 
-        <a href="#" class="nav-link">
-            <span class="menu-icon">◷</span> Absensi
+        <a href="{{ route('attendances.index') }}"
+        class="nav-link {{ request()->routeIs('attendances.*') ? 'active' : '' }}">
+            <i class="bi bi-calendar-check me-2">◷</i>
+            Absensi
         </a>
 
         <a href="#" class="nav-link">
